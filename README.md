@@ -27,6 +27,39 @@ My goal was to rewrite and harden the program so that the password and output me
 
 ## Techniques Used
 
+## Reverse Engineering Comparison
+
+### Original CrackMe Binary
+
+The original binary exposed important program behavior directly in the decompiled output.
+
+#### Original Main Function
+![Original Main Function](screenshots/ghidra-original-main.png)
+
+#### Original Password Validation Logic
+![Original Password Validation](screenshots/original-password-check.png)
+
+#### Plaintext Strings Visible in Ghidra
+![Original Strings](screenshots/ghidra-original-strings.png)
+
+---
+
+### Hardened Binary
+
+The hardened version replaces plaintext values and direct logic with runtime transformations and XOR-based obfuscation.
+
+#### XOR String Obfuscation
+![XOR Obfuscation](screenshots/xor-string-obfuscation.png)
+
+#### Runtime Decoding Function
+![Runtime Decoding](screenshots/runtime-decoding-function.png)
+
+#### Password Transformation Logic
+![Password Transform](screenshots/password-transform-logic.png)
+
+#### Hardened Decompiled Output
+![Hardened Decompiled Output](screenshots/hardened-decompiled-output.png)
+
 ### XOR String Obfuscation
 
 The original program stored success and failure messages in a way that was easy to identify. I replaced those messages with XOR-encoded byte arrays.
